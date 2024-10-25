@@ -54,7 +54,7 @@ export default function Employee() {
 
     const handleDeleteEmployee = async (employeeId) => {
         try {
-            const response = await fetch(`http://localhost:8085/api/v1/employeeManager/employees/${employeeId}`, {
+            const response = await fetch(`http://sample-backend1.azurewebsites.net/api/v1/employeeManager/employees/${employeeId}`, {
                 method: 'DELETE',
             });
             if (response.ok) {
