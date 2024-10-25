@@ -1,14 +1,15 @@
 import React from 'react';
-import {BrowserRouter, Routes, Route, Navigate, useLocation} from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import Navbar from './HomePage/Navbar';
 import Login from './Components/Login';
 import Register from './Components/Register';
 import Dashboard from './HomePage/Dashboard';
 import Employee from './HomePage/Employee';
+import EmployeeDetails from "./EmployeeComponents/EmployeeDetails";
 
 function App() {
-    // Check if email is present in localStorage
-    const isLoggedIn = localStorage.getItem('email');
+    // Check if email and role are present in localStorage
+    const isLoggedIn = localStorage.getItem('email') && localStorage.getItem('role');
 
     return (
         <BrowserRouter>
@@ -34,6 +35,7 @@ function Main() {
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/employee" element={<Employee />} />
                 {/* Add more routes as needed */}
+                <Route path="/employeedetails/:employeeId" element={<EmployeeDetails />} />
             </Routes>
         </>
     );
