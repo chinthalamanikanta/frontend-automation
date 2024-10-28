@@ -33,10 +33,10 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v1
         with:
-          creds: '{"clientId": "${{ secrets.AZURE_CLIENT_ID }}", "clientSecret": "${{ secrets.AZURE_CLIENT_SECRET }}", "tenantId": "${{ secrets.AZURE_TENANT_ID }}"}'
+          creds: ${{ secrets.AZURE_CREDENTIALS }}  # Use the single secret here
 
       - name: Set Azure Subscription
-        run: az account set --subscription "${{ secrets.AZURE_SUBSCRIPTION_ID }}"
+        run: az account set --subscription "${{ fromJson(secrets.AZURE_CREDENTIALS).subscriptionId }}"
 
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v2
