@@ -100,7 +100,7 @@ const Register = () => {
 
             // Navigate to login page upon successful registration
             if (response.status === 200) {
-                window.location.href = "/login";
+                navigate('/login');
             }
         } catch (err) {
             if (err.response) {
