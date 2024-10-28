@@ -40,7 +40,7 @@ export default function EmployeeDetails() {
     useEffect(() => {
         const fetchEmployee = async () => {
             try {
-                const response = await axios.get(`http://sample-backend1.azurewebsites.net/api/v1/employeeManager/employees/${employeeId}`);
+                const response = await axios.get(`https://sample-backend1.azurewebsites.net/api/v1/employeeManager/employees/${employeeId}`);
                 setEmployee(response.data);
                 console.log(response);
             } catch (error) {
