@@ -121,7 +121,7 @@ const Login = () => {
                 </form>
 
                 <p className="text-mute">
-                    Not a member? <a href="/register">Register</a>
+                    Not a member? <Link href="/register">Register</Link>
                 </p>
             </main>
             <div className="welcome-container">
