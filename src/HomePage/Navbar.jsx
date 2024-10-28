@@ -69,7 +69,7 @@ export default function Navbar() {
                     </button>
                 </div>
                 <Popover.Group className="hidden lg:flex lg:gap-x-12">
-                    <Link href="/dashboard" className="text-2xl font-semibold leading-6 text-gray-900">
+                    <Link to="/dashboard" className="text-2xl font-semibold leading-6 text-gray-900">
                         Dashboard
                     </Link>
                     <Popover className="relative">
