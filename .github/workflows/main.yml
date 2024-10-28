@@ -30,9 +30,6 @@ jobs:
           name: build
           path: build
 
-      - name: Debug Subscription ID
-        run: echo "Using Subscription ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}"
-
       - name: Login to Azure
         uses: azure/login@v1
         with:
