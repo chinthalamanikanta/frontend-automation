@@ -13,7 +13,9 @@ const Register = () => {
     const [password, setPassword] = useState("");
     const [passwordError, setPasswordError] = useState("");
     const [loading, setLoading] = useState(false);
-    const [emailExistsError] = useState("");
+    const [emailExistsError, setEmailExistsError] = useState(""); // Correctly define state for emailExistsError
+
+    const navigate = useNavigate(); // Ensure navigate is defined here
 
     useEffect(() => {
         document.title = 'Register: Create an Account';
@@ -104,8 +106,12 @@ const Register = () => {
             }
         } catch (err) {
             if (err.response) {
-                // Display the error message from the backend if available
-                alert(err.response.data.message || "An error occurred during registration.");
+                // Check if the error indicates that the email already exists
+                if (err.response.data.message === "Email already exists.") {
+                    setEmailExistsError("* This email is already registered.");
+                } else {
+                    alert(err.response.data.message || "An error occurred during registration.");
+                }
             } else {
                 alert(err.message);
             }
@@ -171,7 +177,7 @@ const Register = () => {
                         </label>
                     </form>
 
-                    <p className="text-mute">Already a member? <Link href="/login">Login</Link></p>
+                    <p className="text-mute">Already a member? <Link to="/login">Login</Link></p>
                 </main>
                 <div className="welcome-container">
                     <h1 className="heading-secondary">Welcome to <span className="lg">MT Buddy!</span></h1>
