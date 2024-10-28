@@ -53,7 +53,7 @@ export default function Navbar() {
         <header className="bg-white">
             <nav className="flex items-center justify-between p-6 lg:px-8 flex-shrink-0" aria-label="Global">
                 <div className="flex lg:flex-1">
-                    <Link href="/dashboard" className="-m-1.5 p-1.5">
+                    <Link to="/dashboard" className="-m-1.5 p-1.5">
                         <span className="sr-only">Middleware</span>
                         <img className="h-8 w-auto" alt="Middleware" />
                     </Link>
@@ -100,7 +100,7 @@ export default function Navbar() {
                                                 <item.icon className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" aria-hidden="true" />
                                             </div>
                                             <div className="flex-auto">
-                                                <Link href={item.href} className="block font-semibold text-gray-900">
+                                                <Link to={item.href} className="block font-semibold text-gray-900">
                                                     {item.name}
                                                     <span className="absolute inset-0" />
                                                 </Link>
@@ -116,16 +116,16 @@ export default function Navbar() {
                     {/* Conditional rendering based on role */}
                     {role === 'admin' && (
                         <>
-                            <Link href="/employee" className="text-2xl font-semibold leading-6 text-gray-900">
+                            <Link to="/employee" className="text-2xl font-semibold leading-6 text-gray-900">
                                 Employees
                             </Link>
-                            <Link href="/documents" className="text-2xl font-semibold leading-6 text-gray-900">
+                            <Link to="/documents" className="text-2xl font-semibold leading-6 text-gray-900">
                                 Documents
                             </Link>
-                            <Link href="/thanks" className="text-2xl font-semibold leading-6 text-gray-900">
+                            <Link to="/thanks" className="text-2xl font-semibold leading-6 text-gray-900">
                                 Thanks
                             </Link>
-                            <Link href="/authorizations" className="text-2xl font-semibold leading-6 text-gray-900">
+                            <Link to="/authorizations" className="text-2xl font-semibold leading-6 text-gray-900">
                                 Authorizations
                             </Link>
                         </>
@@ -167,7 +167,7 @@ export default function Navbar() {
                                 <Menu.Item>
                                     {({ active }) => (
                                         <Link
-                                            href="/"
+                                            to="/"
                                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-2xl text-gray-500')}
                                         >
                                             Your Profile
@@ -177,7 +177,7 @@ export default function Navbar() {
                                 <Menu.Item>
                                     {({ active }) => (
                                         <Link
-                                            href="/"
+                                            to="/"
                                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-2xl text-gray-500')}
                                         >
                                             Settings
@@ -205,7 +205,7 @@ export default function Navbar() {
                 <div className="fixed inset-0 z-10" />
                 <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
                     <div className="flex items-center justify-between">
-                        <Link href="/dashboard" className="-m-1.5 p-1.5">
+                        <Link to="/dashboard" className="-m-1.5 p-1.5">
                             <span className="sr-only">Middleware</span>
                             <img className="h-8 w-auto" alt="Middleware" />
                         </Link>
@@ -222,19 +222,19 @@ export default function Navbar() {
                         <div className="-my-6 divide-y divide-gray-500/10">
                             <div className="space-y-2 py-6">
                                 <Link
-                                    href="/dashboard"
+                                    to="/dashboard"
                                     className="-mx-3 block rounded-lg py-2 px-3 text-2xl font-semibold leading-7 text-gray-900 hover:bg-gray-400/10"
                                 >
                                     Dashboard
                                 </Link>
                                 <Link
-                                    href="/employee"
+                                    to="/employee"
                                     className="-mx-3 block rounded-lg py-2 px-3 text-2xl font-semibold leading-7 text-gray-900 hover:bg-gray-400/10"
                                 >
                                     Employees
                                 </Link>
                                 <Link
-                                    href="/documents"
+                                    to="/documents"
                                     className="-mx-3 block rounded-lg py-2 px-3 text-2xl font-semibold leading-7 text-gray-900 hover:bg-gray-400/10"
                                 >
                                     Documents
@@ -242,7 +242,7 @@ export default function Navbar() {
                             </div>
                             <div className="py-6">
                                 <Link
-                                    href="#"
+                                    to="#"
                                     className="-mx-3 block rounded-lg py-2.5 px-3 text-2xl font-semibold leading-6 text-gray-900 hover:bg-gray-400/10"
                                 >
                                     Logout
