@@ -8,14 +8,15 @@ const Register = () => {
     const [employee_name, setEmployeename] = useState("");
     const [last_name, setLastName] = useState("");
     const [employeeNameError, setEmployeeNameError] = useState("");
+    const [lastNameError, setLastNameError] = useState(""); // Added specific error state for last name
     const [email, setEmail] = useState("");
     const [emailError, setEmailError] = useState("");
     const [password, setPassword] = useState("");
     const [passwordError, setPasswordError] = useState("");
     const [loading, setLoading] = useState(false);
-    const [emailExistsError, setEmailExistsError] = useState(""); // Correctly define state for emailExistsError
+    const [emailExistsError, setEmailExistsError] = useState("");
 
-    const navigate = useNavigate(); // Ensure navigate is defined here
+    const navigate = useNavigate();
 
     useEffect(() => {
         document.title = 'Register: Create an Account';
@@ -40,13 +41,13 @@ const Register = () => {
         }
 
         if (!last_name) {
-            setEmailError("* Please fill in the last name.");
+            setLastNameError("* Please fill in the last name.");
             isValid = false;
         } else if (!namePattern.test(last_name)) {
-            setEmailError("Last name must not contain numbers or special characters.");
+            setLastNameError("Last name must not contain numbers or special characters.");
             isValid = false;
         } else {
-            setEmailError("");
+            setLastNameError("");
         }
 
         if (!email) {
@@ -84,9 +85,8 @@ const Register = () => {
             setPasswordError("");
         }
 
-        setLoading(true); // Show loader while making API request
+        setLoading(true); 
 
-        // Create FormData object for sending as 'multipart/form-data'
         const formData = new FormData();
         formData.append("firstName", employee_name);
         formData.append("lastName", last_name);
@@ -94,19 +94,18 @@ const Register = () => {
         formData.append("password", password);
 
         try {
-            const response = await axios.post("http://sample-backend1.azurewebsites.net/api/v1/employeeManager/register", formData, {
+            console.log("Sending registration request to API"); // Debug message
+            const response = await axios.post("https://sample-backend1.azurewebsites.net/api/v1/employeeManager/register", formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
             });
 
-            // Navigate to login page upon successful registration
             if (response.status === 200) {
                 navigate('/login');
             }
         } catch (err) {
             if (err.response) {
-                // Check if the error indicates that the email already exists
                 if (err.response.data.message === "Email already exists.") {
                     setEmailExistsError("* This email is already registered.");
                 } else {
@@ -116,7 +115,7 @@ const Register = () => {
                 alert(err.message);
             }
         } finally {
-            setLoading(false); // Always hide loader after API call
+            setLoading(false);
         }
     }
 
@@ -143,7 +142,7 @@ const Register = () => {
                             <span className="label">Last Name</span>
                             <span className="input-icon"></span>
                         </label>
-                        {emailError && <p className="error-message">{emailError}</p>}
+                        {lastNameError && <p className="error-message">{lastNameError}</p>}
 
                         <label className="inp">
                             <input type="email" className="input-text" placeholder="&nbsp;"
