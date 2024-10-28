@@ -39,7 +39,7 @@ export default function Employee() {
     const fetchEmployees = async () => {
         setLoading(true);
         try {
-            const response = await fetch('http://sample-backend1.azurewebsites.net/api/v1/employeeManager/employees');
+            const response = await fetch('https://sample-backend1.azurewebsites.net/api/v1/employeeManager/employees');
             if (!response.ok) {
                 throw new Error('Failed to fetch employees');
             }
@@ -54,7 +54,7 @@ export default function Employee() {
 
     const handleDeleteEmployee = async (employeeId) => {
         try {
-            const response = await fetch(`http://sample-backend1.azurewebsites.net/api/v1/employeeManager/employees/${employeeId}`, {
+            const response = await fetch(`https://sample-backend1.azurewebsites.net/api/v1/employeeManager/employees/${employeeId}`, {
                 method: 'DELETE',
             });
             if (response.ok) {
