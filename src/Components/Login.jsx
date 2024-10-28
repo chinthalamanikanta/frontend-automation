@@ -6,7 +6,7 @@
 
 import React, { useEffect, useState } from 'react';
 import '../SharedCSS/SharedCss.css';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link} from 'react-router-dom';
 import axios from 'axios';
 import Loader from '../Assets/Loader'; // Ensure you have the Loader component imported correctly
 
@@ -121,7 +121,7 @@ const Login = () => {
                 </form>
 
                 <p className="text-mute">
-                    Not a member? <a href="/register">Register</a>
+                    Not a member? <Link href="/register">Register</Link>
                 </p>
             </main>
             <div className="welcome-container">

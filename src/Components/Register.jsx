@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import '../SharedCSS/SharedCss.css';
 import axios from "axios";
 import Loader from "../Assets/Loader"; // Ensure Loader is correctly imported
@@ -170,7 +171,7 @@ const Register = () => {
                         </label>
                     </form>
 
-                    <p className="text-mute">Already a member? <a href="/login">Login</a></p>
+                    <p className="text-mute">Already a member? <Link href="/login">Login</Link></p>
                 </main>
                 <div className="welcome-container">
                     <h1 className="heading-secondary">Welcome to <span className="lg">MT Buddy!</span></h1>
