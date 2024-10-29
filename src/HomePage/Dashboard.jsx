@@ -8,7 +8,7 @@ const Dashboard = () => {
         // Check if both email and role are present
         const isLoggedIn = localStorage.getItem('email') && localStorage.getItem('role');
         if (!isLoggedIn) {
-            window.location.reload(); // Reload the entire application
+             // Reload the entire application
 
             // If user is not logged in, redirect to login page
             navigate('/login');
