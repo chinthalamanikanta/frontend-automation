@@ -45,7 +45,7 @@ export default function Navbar() {
         localStorage.removeItem('email');
         localStorage.removeItem('role');
         // localStorage.clear(); // Clear localStorage
-        window.location.reload(); // Reload the entire application
+         // Reload the entire application
         navigate('/login');
     };
 
