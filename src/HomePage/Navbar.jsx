@@ -47,6 +47,7 @@ export default function Navbar() {
         // localStorage.clear(); // Clear localStorage
          // Reload the entire application
         navigate('/login');
+        window.location.reload();
     };
 
     return (
