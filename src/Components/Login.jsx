@@ -37,7 +37,7 @@ const Login = () => {
 
         try {
             // Send login request to the backend
-            const response = await axios.post('https://sample-backend1.azurewebsites.net/api/v1/employeeManager/login', {
+            const response = await axios.post('https://talents-backend.azurewebsites.net/api/v1/employeeManager/login', {
                 email: email,
                 password: password,
             });
@@ -45,7 +45,8 @@ const Login = () => {
             // Log the entire response object
             console.log('Login response:', response);
 
-            const { message, role } = response.data;
+            const { message, role,token } = response.data;
+            const tokenData=token;
 
             // Log the extracted message and role
             console.log('Message:', message);
@@ -55,9 +56,13 @@ const Login = () => {
                 setError('* Email does not exist');
             } else if (message === 'Login Success') {
                 // Set role from backend; default to 'Admin' only if role is undefined
-                const userRole = role ? role.toLowerCase() : 'admin';
+                // const userRole = role ? role.toLowerCase() : 'admin';
+                // const userRole = "admin";
                 localStorage.setItem('email', email);
-                localStorage.setItem('role', userRole);
+                localStorage.setItem('role', role);
+                localStorage.setItem('token',tokenData);
+                console.log(tokenData);
+                // Navigate to the dashboard page and trigger updates across components
                 navigate('/dashboard');
                 window.dispatchEvent(new Event('storage')); // To trigger updates across components
             } else {

@@ -12,9 +12,9 @@ const ProfessionalDetailsForm = ({ formData, onNext, onBack, onFormDataChange })
         }
 
         // Validate Employee ID (Only numbers)
-        if (!/^\d+$/.test(formData.employeeId)) {
-            newErrors.employeeId = "Employee ID should contain only numbers.";
-        }
+        // if (!/^\d+$/.test(formData.employeeId)) {
+        //     newErrors.employeeId = "Employee ID should contain only numbers.";
+        // }
 
         // Validate Corporate Email
         if (!/\S+@\S+\.\S+/.test(formData.corporateEmail)) {

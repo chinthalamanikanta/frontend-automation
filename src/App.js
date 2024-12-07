@@ -6,10 +6,20 @@ import Register from './Components/Register';
 import Dashboard from './HomePage/Dashboard';
 import Employee from './HomePage/Employee';
 import EmployeeDetails from "./EmployeeComponents/EmployeeDetails";
+import TokenExpirationCheck from './Components/TokenExpirationCheck';
+// import { jwtDecode } from 'jwt-decode';
+// import  { useEffect} from 'react';
+// import { useNavigate } from 'react-router-dom';
 
 function App() {
-    // Check if email and role are present in localStorage
-    const isLoggedIn = localStorage.getItem('email') && localStorage.getItem('role');
+    
+   
+
+    const isLoggedIn = localStorage.getItem('token') && localStorage.getItem('email') && localStorage.getItem('role');
+
+
+
+
 
     return (
         <BrowserRouter>
@@ -31,6 +41,7 @@ function Main() {
     return (
         <>
             {showNavbar && <Navbar />}
+            <TokenExpirationCheck/>
             <Routes>
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/employee" element={<Employee />} />
@@ -42,3 +53,7 @@ function Main() {
 }
 
 export default App;
+
+
+
+ 

@@ -44,6 +44,7 @@ export default function Navbar() {
     const handleSignOut = () => {
         localStorage.removeItem('email');
         localStorage.removeItem('role');
+        localStorage.removeItem('token');
         // localStorage.clear(); // Clear localStorage
          // Reload the entire application
         navigate('/login');

@@ -58,10 +58,15 @@ const DocumentUploadForm = ({ formData, onNext, onBack, onCancel, onFormDataChan
         });
 
         try {
-            const response = await axios.post('https://sample-backend1.azurewebsites.net/api/v1/employeeManager/add', formDataToSend, {
+            const token = localStorage.getItem('token');
+            const response = await axios.post('http://localhost:8085/api/v1/employeeManager/add', formDataToSend, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
+               
+                    'Authorization': `Bearer ${token}` // Add Authorization header with JWT token
+                    
                 }
+                
             });
 
             setSubmissionMessage('Documents uploaded successfully!');

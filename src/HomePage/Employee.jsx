@@ -1,3 +1,5 @@
+
+
 import { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import {
@@ -13,7 +15,7 @@ import {
 import ModalWrapper from '../EmployeeComponents/ModalWrapper';
 import MultiStepForm from '../EmployeeComponents/MultiStepForm';
 import Loader from "../Assets/Loader";
-
+ 
 export default function Employee() {
     const navigate = useNavigate();
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -21,29 +23,38 @@ export default function Employee() {
     const [loading, setLoading] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
     const [employeesPerPage] = useState(7);
-
+ 
     useEffect(() => {
         const email = localStorage.getItem('email');
         const role = localStorage.getItem('role');
-
+ 
         if (!email || !role) {
             window.location.reload(); // Reload the entire application
-
+ 
             navigate('/login');
         } else {
             fetchEmployees();
         }
     }, [navigate]);
-
-
+ 
+ 
     const fetchEmployees = async () => {
+       const token= localStorage.getItem('token');
         setLoading(true);
         try {
-            const response = await fetch('https://sample-backend1.azurewebsites.net/api/v1/employeeManager/employees');
+            const response = await fetch('http://localhost:8085/api/v1/employeeManager/employees',{
+                method:'GET',
+                headers:{
+                    'Authorization':`Bearer ${token}`,
+                    'Content-Type':'application/json'
+                }
+            });
+            console.log(response.data);
             if (!response.ok) {
                 throw new Error('Failed to fetch employees');
             }
             const data = await response.json();
+            console.log(data);
             setEmployees(data);
         } catch (error) {
             console.error(error);
@@ -51,11 +62,16 @@ export default function Employee() {
             setLoading(false);
         }
     };
-
-    const handleDeleteEmployee = async (employeeId) => {
+ 
+    const handleDeleteEmployee = async (id) => {
+        const token= localStorage.getItem('token');
         try {
-            const response = await fetch(`https://sample-backend1.azurewebsites.net/api/v1/employeeManager/employees/${employeeId}`, {
+            const response = await fetch(`http://localhost:8085/api/v1/employeeManager/employees/${id}`, {
                 method: 'DELETE',
+                headers:{
+                    'Authorization':`Bearer ${token}`,
+                    'Content-Type':'application/json'
+                }
             });
             if (response.ok) {
                 fetchEmployees();
@@ -67,32 +83,32 @@ export default function Employee() {
             console.error('Error while deleting employee:', error);
         }
     };
-
+ 
     const handleEmployeeAdded = () => {
         fetchEmployees();
         setIsModalOpen(false);
     };
-
+ 
     const handleOpenModal = () => setIsModalOpen(true);
     const handleCloseModal = () => setIsModalOpen(false);
-
+ 
     const totalEmployees = employees.length;
     const totalAdmins = employees.filter(emp => emp.role === 'Admin').length;
     const totalDepartments = [...new Set(employees.map(emp => emp.department))].length;
-
+ 
     // Pagination logic
     const indexOfLastEmployee = currentPage * employeesPerPage;
     const indexOfFirstEmployee = indexOfLastEmployee - employeesPerPage;
     const currentEmployees = employees.slice(indexOfFirstEmployee, indexOfLastEmployee);
     const totalPages = Math.ceil(employees.length / employeesPerPage);
-
+ 
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
-
+ 
     return (
         <div className="min-h-screen bg-gray-100 w-full">
             <div className="w-full px-4 sm:px-6 lg:px-8 py-8">
                 <h1 className="text-3xl font-bold text-gray-900 mb-8">Employee Dashboard</h1>
-
+ 
                 {/* Metrics Section */}
                 <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 mb-8">
                     <div className="bg-white overflow-hidden shadow rounded-lg">
@@ -141,14 +157,14 @@ export default function Employee() {
                         </div>
                     </div>
                 </div>
-
+ 
                 {/* Employee List Section */}
                 <div className="bg-white shadow overflow-hidden sm:rounded-lg">
                     <div className="px-4 py-5 sm:px-6 flex justify-between items-center">
                         <h2 className="text-xl leading-6 font-bold text-gray-900">Employee List</h2>
                         {/*here*/}
-
-
+ 
+ 
                         {/*here*/}
                         <button
                             onClick={handleOpenModal}
@@ -191,7 +207,7 @@ export default function Employee() {
                                         <tr key={`${employee.corporateEmail}-${employee.firstName}`}>
                                             <td className="px-6 py-4 whitespace-nowrap">
                                                 <div className="flex items-center">
-
+ 
                                                     <div className="ml-4">
                                                         <button
                                                             className="text-xl font-bold text-gray-900 hover:text-blue-600 transition-colors duration-200"
@@ -215,7 +231,7 @@ export default function Employee() {
                                             </td>
                                             <td className="px-6 py-4 whitespace-nowrap text-right text-lg font-medium">
                                                 <button
-                                                    onClick={() => handleDeleteEmployee(employee.employeeId)}
+                                                    onClick={() => handleDeleteEmployee(employee.id)}
                                                     className="text-red-600 hover:text-red-900"
                                                 >
                                                     <TrashIcon className="h-5 w-5" aria-hidden="true" />
@@ -226,7 +242,7 @@ export default function Employee() {
                                     </tbody>
                                 </table>
                             </div>
-
+ 
                             {/* Pagination */}
                             <div className="bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200 sm:px-6">
                                 <div className="flex-1 flex justify-between sm:hidden">
@@ -290,7 +306,7 @@ export default function Employee() {
                     )}
                 </div>
             </div>
-
+ 
             {/* Add Employee Modal */}
             <ModalWrapper open={isModalOpen} onClose={handleCloseModal}>
                 <MultiStepForm onSubmit={handleEmployeeAdded} onCancel={handleCloseModal} />

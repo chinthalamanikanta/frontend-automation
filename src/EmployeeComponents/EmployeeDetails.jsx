@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import {
@@ -14,13 +15,13 @@ import {
 } from "@heroicons/react/20/solid";
 import axios from "axios";
 import Loader from "../Assets/Loader";
-
+ 
 const Badge = ({ children, variant, className }) => (
     <span className={`inline-flex items-center rounded-full px-3 py-2 text-xs font-medium ${variant === 'outline' ? 'border' : 'bg-gray-100'} ${className}`}>
         {children}
     </span>
 );
-
+ 
 const Button = ({ children, variant, size, ...props }) => (
     <button
         className={`rounded-md font-medium ${variant === 'outline' ? 'border border-gray-300' : 'bg-blue-500 text-white'} ${size === 'sm' ? 'px-2 py-1 text-base' : 'px-4 py-2 text-lg'}`}
@@ -29,31 +30,43 @@ const Button = ({ children, variant, size, ...props }) => (
         {children}
     </button>
 );
-
+ 
 const ScrollArea = ({ children, className }) => <div className={`overflow-auto ${className}`}>{children}</div>;
 const Separator = () => <hr className="my-4" />;
-
+ 
 export default function EmployeeDetails() {
     const { employeeId } = useParams();
     const [employee, setEmployee] = useState(null);
-
+ 
     useEffect(() => {
         const fetchEmployee = async () => {
             try {
-                const response = await axios.get(`https://sample-backend1.azurewebsites.net/api/v1/employeeManager/employees/${employeeId}`);
+                const token= localStorage.getItem('token');
+                console.log(token);
+                console.log(employeeId);
+                console.log("upto");
+                const response = await axios.get(`http://localhost:8085/api/v1/employeeManager/employees/${employeeId}`,{
+                    method:'GET',
+                    headers:{
+                        'Authorization':`Bearer ${token}`,
+                        'Content-Type':'application/json'
+                    }
+                });
+                console.log(response.data);
+                console.log(response.status);
                 setEmployee(response.data);
-                console.log(response);
+               
             } catch (error) {
                 console.error("Error fetching employee data:", error);
             }
         };
         fetchEmployee();
     }, [employeeId]);
-
+ 
     if (!employee) {
         return <div className="flex justify-center items-center h-screen"><Loader /></div>;
     }
-
+ 
     // Attachments mapping
     const attachments = [
         { label: "National Card", file: employee.nationalCard },
@@ -61,7 +74,7 @@ export default function EmployeeDetails() {
         { label: "12th Certificate", file: employee.twelfthCertificate },
         { label: "Graduation Certificate", file: employee.graduationCertificate },
     ];
-
+ 
     return (
         <div className="flex flex-col min-h-screen bg-gray-50">
             <header className="bg-white shadow-sm w-full">
@@ -123,7 +136,7 @@ export default function EmployeeDetails() {
         </div>
     );
 }
-
+ 
 function InfoItem({ icon, label, value, fullWidth = false, highlight = false }) {
     return (
         <div className={`flex items-start space-x-4 ${fullWidth ? 'col-span-full' : ''} ${highlight ? 'bg-blue-50 p-4 rounded-md' : ''}`}>
@@ -137,7 +150,7 @@ function InfoItem({ icon, label, value, fullWidth = false, highlight = false }) 
         </div>
     );
 }
-
+ 
 function AttachmentItem({ filename, filesize, icon, fileUrl }) {
     const handleDownload = () => {
         const link = document.createElement("a");
@@ -147,7 +160,7 @@ function AttachmentItem({ filename, filesize, icon, fileUrl }) {
         link.click();
         document.body.removeChild(link);
     };
-
+ 
     return (
         <li className="flex items-center justify-between py-4 pl-3 pr-4 text-lg bg-gray-50 rounded-md">
             <div className="flex items-center">
@@ -163,7 +176,9 @@ function AttachmentItem({ filename, filesize, icon, fileUrl }) {
         </li>
     );
 }
-
+ 
 function getFileSize(fileUrl) {
     return "1.2 MB";
 }
+ 
+
