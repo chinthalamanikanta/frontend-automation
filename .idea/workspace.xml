@@ -4,48 +4,40 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0afec4f7-7660-4a88-b8e4-ce3cff7b0011" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/main.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Login.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Register.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Register.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EmployeeComponents/DocumentUploadForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmployeeComponents/DocumentUploadForm.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EmployeeComponents/EmployeeDetails.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmployeeComponents/EmployeeDetails.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EmployeeComponents/ProfessionalDetailsForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmployeeComponents/ProfessionalDetailsForm.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomePage/Dashboard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomePage/Dashboard.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomePage/Employee.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomePage/Employee.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomePage/Navbar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomePage/Navbar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+    <list default="true" id="0afec4f7-7660-4a88-b8e4-ce3cff7b0011" name="Changes" comment="ravi">
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Dockerfile" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "Ravitejaganji1234"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Ravitejaganji1234&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Ravitejaganji1234/Middlewaretalents.git",
-    "accountId": "e11604a4-0c12-4dc0-9678-6ee7cc0778fe"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Ravitejaganji1234/new-demo-jenkins-frontned.git&quot;,
+    &quot;accountId&quot;: &quot;e11604a4-0c12-4dc0-9678-6ee7cc0778fe&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 6
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
   <component name="ProjectId" id="2ptwWymdiiE62wV5A7cJA8nSZ68" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -54,9 +46,10 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/MTL1017/Downloads/ems-frontend-krupa-main",
+    "last_opened_file_path": "C:/Users/MTL1017/Desktop/Docker-AKS/ems-backend",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -113,11 +106,50 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1733598715068</updated>
-      <workItem from="1733598716504" duration="1871000" />
+      <workItem from="1733598716504" duration="3958000" />
+      <workItem from="1738660957000" duration="2180000" />
+      <workItem from="1738821206601" duration="1895000" />
     </task>
+    <task id="LOCAL-00001" summary="ravi">
+      <option name="closed" value="true" />
+      <created>1733601073092</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1733601073092</updated>
+    </task>
+    <task id="LOCAL-00002" summary="ravi">
+      <option name="closed" value="true" />
+      <created>1733602254864</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1733602254864</updated>
+    </task>
+    <task id="LOCAL-00003" summary="ravi">
+      <option name="closed" value="true" />
+      <created>1738662235246</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1738662235246</updated>
+    </task>
+    <task id="LOCAL-00004" summary="ravi">
+      <option name="closed" value="true" />
+      <created>1738664109590</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1738664109590</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="ravi" />
+    <option name="LAST_COMMIT_MESSAGE" value="ravi" />
   </component>
 </project>
