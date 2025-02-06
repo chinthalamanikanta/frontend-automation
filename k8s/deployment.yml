@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: react-frontend
-        image: rrmyacr.azurecr.io/react-frontend:latest
+        image: rrmyacr.azurecr.io/ravifront:latest
         ports:
         - containerPort: 80
         resources:
