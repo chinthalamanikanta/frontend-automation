@@ -24,4 +24,6 @@ spec:
           limits:
             memory: "256Mi"
             cpu: "500m"
-            
+        env:
+        - name: BACKEND_URL
+          value: "http://4.230.145.118/:8088"  # Replace with your backend external IP
