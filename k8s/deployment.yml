@@ -14,9 +14,9 @@ spec:
     spec:
       containers:
       - name: react-frontend
-        image: rrmyacr.azurecr.io/ravifront:latest
+        image: manicontainer.azurecr.io/chm80076/mkfrontend:latest
         ports:
-        - containerPort: 80
+        - containerPort: 8080
         resources:
           requests:
             memory: "128Mi"
