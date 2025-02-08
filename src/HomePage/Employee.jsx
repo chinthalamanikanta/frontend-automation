@@ -42,7 +42,7 @@ export default function Employee() {
        const token= localStorage.getItem('token');
         setLoading(true);
         try {
-            const response = await fetch('https://talents-backend.azurewebsites.net/api/v1/employeeManager/employees',{
+            const response = await fetch('http://4.230.147.91/api/v1/employeeManager/employees',{
                 method:'GET',
                 headers:{
                     'Authorization':`Bearer ${token}`,
@@ -66,7 +66,7 @@ export default function Employee() {
     const handleDeleteEmployee = async (id) => {
         const token= localStorage.getItem('token');
         try {
-            const response = await fetch(`https://talents-backend.azurewebsites.net/api/v1/employeeManager/employees/${id}`, {
+            const response = await fetch(`http://4.230.147.91/api/v1/employeeManager/employees/${id}`, {
                 method: 'DELETE',
                 headers:{
                     'Authorization':`Bearer ${token}`,
