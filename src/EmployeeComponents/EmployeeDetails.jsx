@@ -45,7 +45,7 @@ export default function EmployeeDetails() {
                 console.log(token);
                 console.log(employeeId);
                 console.log("upto");
-                const response = await axios.get(`https://talents-backend.azurewebsites.net/api/v1/employeeManager/employees/${employeeId}`,{
+                const response = await axios.get(`http://4.230.147.91/api/v1/employeeManager/employees/${employeeId}`,{
                     method:'GET',
                     headers:{
                         'Authorization':`Bearer ${token}`,
