@@ -95,7 +95,7 @@ const Register = () => {
 
         try {
             console.log("Sending registration request to API"); // Debug message
-            const response = await axios.post("http://4.248.241.255/api/v1/employeeManager/register", formData, {
+            const response = await axios.post("http://4.230.147.91/api/v1/employeeManager/register", formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
