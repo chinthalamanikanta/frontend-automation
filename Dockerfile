@@ -21,6 +21,7 @@ FROM nginx:alpine
 COPY --from=build /app/build /usr/share/nginx/html
 
 # Step 8: Expose port 80
+#hi mani
 EXPOSE 80
 
 # Step 9: Start nginx to serve the app
