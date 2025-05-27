@@ -24,5 +24,5 @@ COPY --from=build /app/build /usr/share/nginx/html
 #hi mani
 EXPOSE 80
 
-# Step 9: Start nginx to serve the app
+# Step 9: Start nginx to serve the applicatup
 CMD ["nginx", "-g", "daemon off;"]
