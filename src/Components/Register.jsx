@@ -187,3 +187,5 @@ const Register = () => {
 };
 
 export default Register;
+
+#manikanta
